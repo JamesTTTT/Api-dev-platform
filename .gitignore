@@ -1,0 +1,67 @@
+# General
+.DS_Store
+Thumbs.db
+
+# Node.js
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs
+*.log
+*.log.*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Production build directories
+build/
+dist/
+
+# Svelte
+__sapper__/
+.svelte-kit/
+.svelte/
+public/build/
+
+# SvelteKit
+build/
+.svelte-kit/
+
+# Go
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go vendor directory
+vendor/
+
+# Go workspace file
+go.work
+go.work.sum
+
+# IDE and editor folders/files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# SQLite database files
+*.db
+*.sqlite
+*.sqlite3
+*.db-wal
+*.db-shm
