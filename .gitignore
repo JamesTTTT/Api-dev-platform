@@ -1,38 +1,38 @@
-# General
-.DS_Store
-Thumbs.db
-
 # Node.js
-node_modules
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# Logs
-logs
+# Log files
+logs/
 *.log
 *.log.*
+*.tlog
+*.patch
 
-# Dependency directories
-node_modules/
-jspm_packages/
+# Tailwind CSS
+tailwind.config.js
+tailwind.config.ts
 
-# Production build directories
+# React
 build/
-dist/
-
-# Svelte
-__sapper__/
-.svelte-kit/
-.svelte/
 public/build/
+public/static/
+.DS_Store
 
-# SvelteKit
-build/
-.svelte-kit/
+# Editor directories and files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+Thumbs.db
+.DS_Store
 
 # Go
-bin/
 *.exe
 *.exe~
 *.dll
@@ -41,27 +41,56 @@ bin/
 *.test
 *.out
 
-# Go vendor directory
+# Go modules
 vendor/
+*.mod
+*.sum
 
-# Go workspace file
-go.work
-go.work.sum
+# Gin framework
+# Note: Gin itself does not create any specific files to ignore, 
+# but it is common to ignore build artifacts and local configurations.
+tmp/
+*.tmp
 
-# IDE and editor folders/files
-.vscode/
-.idea/
+# Binaries
+bin/
+dist/
+*.exe
+*.exe~
+
+# Coverage reports
+*.coverprofile
+*.coverage
+
+# Miscellaneous
+*.lock
+.lock-wscript
+.venv/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Compiled source
+dist/
+tmp/
+temp/
+*.cache
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Code backups
+*.bak
 *.swp
 *.swo
-*~
+*.bak~
 
-# OS-specific files
-.DS_Store
-Thumbs.db
-
-# SQLite database files
-*.db
-*.sqlite
-*.sqlite3
-*.db-wal
-*.db-shm
