@@ -6,7 +6,8 @@ export const RequestProvider = ({ children }) => {
   const [method, setMethod] = useState("GET");
   const [URL, setURL] = useState("");
   const [headers, setHeaders] = useState({});
-  const [body, setBody] = useState({});
+  const [body, setBody] = useState("");
+  const [output, setOutput] = useState("");
 
   const getRequestData = {
     method: method,
@@ -20,6 +21,8 @@ export const RequestProvider = ({ children }) => {
     setURL,
     setHeaders,
     setBody,
+    setOutput,
+    output,
     getRequestData,
   };
 
