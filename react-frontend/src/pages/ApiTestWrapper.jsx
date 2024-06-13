@@ -4,6 +4,7 @@ import {
   SendRequestButton,
   MethodSelector,
   RequestBody,
+  ResponseDisplay,
 } from "../components";
 
 const ApiTestWrapper = () => {
@@ -18,8 +19,8 @@ const ApiTestWrapper = () => {
           </div>
           <RequestBody />
         </div>
-        <div className="w-1/2 h-screen bg-slate-400 overflow-scroll">
-          I am the outut
+        <div className="w-1/2 h-screen bg-neutral overflow-scroll">
+          <ResponseDisplay />
         </div>
       </main>
     </div>
