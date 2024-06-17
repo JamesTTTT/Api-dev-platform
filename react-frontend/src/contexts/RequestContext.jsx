@@ -5,7 +5,9 @@ const RequestContext = createContext();
 export const RequestProvider = ({ children }) => {
   const [method, setMethod] = useState("GET");
   const [URL, setURL] = useState("");
-  const [headers, setHeaders] = useState({});
+  const [headers, setHeaders] = useState({
+    "Content-Type": "application/json",
+  });
   const [body, setBody] = useState("");
   const [output, setOutput] = useState("");
 
