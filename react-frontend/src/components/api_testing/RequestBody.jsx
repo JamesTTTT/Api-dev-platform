@@ -1,11 +1,16 @@
 import React, { useState } from "react";
+import { useRequest } from "../../contexts/RequestContext";
+import { CodeEditor, RequestHeaders } from "..";
 
 const Body = () => {
-  return (
-    <div>
-      <textarea className="border bg-transparent outline-none" />
-    </div>
-  );
+  const { getRequestData, setBody } = useRequest();
+
+  const updateCode = React.useCallback((val, viewUpdate) => {
+    console.log("val:", val);
+    setBody(val);
+  }, []);
+
+  return <CodeEditor onChange={updateCode} value={getRequestData.Body} />;
 };
 
 const RequestBody = () => {
@@ -33,12 +38,12 @@ const RequestBody = () => {
       case "body":
         return <Body />;
       case "header":
-        return <div>Header component goes here</div>;
+        return <RequestHeaders />;
     }
   };
 
   return (
-    <div>
+    <div className="h-full">
       <div role="tablist" className="tabs tabs-bordered">
         <button
           role="tab"
@@ -65,7 +70,7 @@ const RequestBody = () => {
           Headers
         </button>
       </div>
-      <section>{selectedComp()}</section>
+      <section className="h-full">{selectedComp()}</section>
     </div>
   );
 };

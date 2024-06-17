@@ -8,9 +8,9 @@ const SendRequestButton = () => {
   return (
     <button
       className="px-3 bg-primary text-neutral text-xs py-[10px] 
-    font-bold border border-l-0 hover:opacity-75"
+    font-bold hover:opacity-75"
       onClick={async () => {
-        const res = await requestHandler.request(getRequestData);
+        const res = await requestHandler.directRequest(getRequestData);
         setOutput(res);
       }}
     >
