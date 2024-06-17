@@ -4,24 +4,42 @@ import { useRequest } from "../../contexts/RequestContext";
 const MethodSelector = () => {
   const { setMethod, getRequestData } = useRequest();
 
-  const setValueOfMethod = (e) => {
-    setMethod(e.target.value);
-  };
-
   return (
-    <select
-      value={getRequestData.method}
-      onChange={setValueOfMethod}
-      className="bg-neutral w-full max-w-20 px-2 hover:bg-opacity-50 border border-r-0 text-xs"
-    >
-      <option value="GET">GET</option>
-      <option value="POST">POST</option>
-      <option value="PUT">PUT</option>
-      <option value="DELETE">DELETE</option>
-      <option value="PATCH">PATCH</option>
-      <option value="HEAD">HEAD</option>
-      <option value="OPTIONS">OPTIONS</option>
-    </select>
+    <div className="dropdown dropdown-hover">
+      <div
+        tabindex="0"
+        role="button"
+        className="btn m-0 w-20 rounded-none text-sm p-0 py-1"
+      >
+        {getRequestData.method || "Select Method"}
+      </div>
+      <ul
+        tabindex="0"
+        className="dropdown-content z-[1] menu p-2 shadow bg-neutral rounded-box "
+      >
+        <li>
+          <a onClick={() => setMethod("GET")}>GET</a>
+        </li>
+        <li>
+          <a onClick={() => setMethod("POST")}>POST</a>
+        </li>
+        <li>
+          <a onClick={() => setMethod("PUT")}>PUT</a>
+        </li>
+        <li>
+          <a onClick={() => setMethod("DELETE")}>DELETE</a>
+        </li>
+        <li>
+          <a onClick={() => setMethod("PATCH")}>PATCH</a>
+        </li>
+        <li>
+          <a onClick={() => setMethod("HEAD")}>HEAD</a>
+        </li>
+        <li>
+          <a onClick={() => setMethod("OPTIONS")}>OPTIONS</a>
+        </li>
+      </ul>
+    </div>
   );
 };
 
