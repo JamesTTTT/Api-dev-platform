@@ -46,4 +46,77 @@ export const requestHandler = {
       throw error;
     }
   },
+
+  directRequest: async (request) => {
+    let responseData;
+    let response;
+    try {
+      const response = await fetch(request.url, {
+        method: request.method,
+        headers: request.headers,
+        body: request.body ? request.body : undefined,
+      });
+
+      const contentType = response.headers.get("Content-Type");
+
+      if (contentType) {
+        switch (true) {
+          case contentType.includes("application/json"):
+            responseData = await response.json();
+            break;
+          case contentType.includes("text/html"):
+          case contentType.includes("text/plain"):
+          case contentType.includes("application/xml"):
+          case contentType.includes("text/xml"):
+            responseData = await response.text();
+            break;
+          case contentType.includes("application/octet-stream"):
+            responseData = await response.blob();
+            break;
+          default:
+            responseData = await response.text();
+            break;
+        }
+      } else {
+        responseData = await response.text();
+      }
+      console.log(response.text());
+      return {
+        requestDetails: {
+          url: request.url,
+          method: request.method,
+          headers: request.headers,
+          body: request.body,
+        },
+        responseDetails: {
+          status: response.status,
+          statusText: response.statusText,
+          headers: Object.fromEntries(response.headers.entries()),
+          data: responseData,
+        },
+      };
+    } catch (error) {
+      console.log(error);
+      return {
+        requestDetails: {
+          url: request.url,
+          method: request.method,
+          headers: request.headers,
+          body: request.body,
+        },
+        responseDetails: {
+          status: response ? response.status : null,
+          statusText: response ? response.statusText : null,
+          headers: response
+            ? Object.fromEntries(response.headers.entries())
+            : null,
+          data: responseData,
+        },
+        error: {
+          message: error.message,
+          status: error.response ? error.response.status : 500,
+        },
+      };
+    }
+  },
 };
